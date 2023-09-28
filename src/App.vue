@@ -1,22 +1,21 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue';
+import NavBar from './components/NavBar.vue';
+import SearchBar from './components/SearchBar.vue';
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <header class="flex">
+    <NavBar />
+    <SearchBar/>
+  </header>
+  <main>
+    <router-view></router-view>
+  </main>
 </template>
 
 <style>
 :root {
-  --clr-white: hsl(0, 0%, 100%);
+  --clr-white: white;
   --clr-red: hsl(0, 97%, 63%);
   --clr-blue: hsl(223, 23%, 46%);
   --clr-dark-blue: hsl(223, 36%, 14%);
@@ -38,6 +37,12 @@ import HelloWorld from './components/HelloWorld.vue';
   font-family: sans-serif;
   background-repeat: no-repeat;
   font-family: 'Outfit', sans-serif;
+}
+
+body {
+  background-color: var(--clr-black);
+  width: 100%;
+  min-height: 100dvh;
 }
 h1 {
   font-size: var(--h1-size);
@@ -79,7 +84,7 @@ h4 {
   align-items: center;
 }
 .radius {
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .large {
@@ -97,6 +102,7 @@ li {
 }
 a {
   text-decoration: none;
+  color: var(--clr-white);
 }
 button {
   display: block;
@@ -115,6 +121,6 @@ button {
 a,
 button,
 svg {
-  transition: all 0.3s;
+  transition: all 0.4s linear;
 }
 </style>
