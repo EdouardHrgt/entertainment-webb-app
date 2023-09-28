@@ -1,0 +1,120 @@
+<script setup>
+import HelloWorld from './components/HelloWorld.vue';
+</script>
+
+<template>
+  <div>
+    <a href="https://vitejs.dev" target="_blank">
+      <img src="/vite.svg" class="logo" alt="Vite logo" />
+    </a>
+    <a href="https://vuejs.org/" target="_blank">
+      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+    </a>
+  </div>
+  <HelloWorld msg="Vite + Vue" />
+</template>
+
+<style>
+:root {
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-red: hsl(0, 97%, 63%);
+  --clr-blue: hsl(223, 23%, 46%);
+  --clr-dark-blue: hsl(223, 36%, 14%);
+  --clr-black: hsl(223, 30%, 9%);
+  --clr-trans-black: hsla(223, 30%, 9%, 0.5);
+
+  --max-width: 1440px;
+  --h1-size: 32px;
+  --h2-size: 24px;
+  --h3-size: 24px;
+  --h4-size: 18px;
+  --body-m-size: 15px;
+  --body-s-size: 13px;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  background-repeat: no-repeat;
+  font-family: 'Outfit', sans-serif;
+}
+h1 {
+  font-size: var(--h1-size);
+}
+h2 {
+  font-size: var(--h2-size);
+}
+h1,
+h2,
+p {
+  font-weight: 300;
+}
+h3 {
+  font-size: var(--h3-size);
+}
+h4 {
+  font-size: var(--h4-size);
+}
+h3,
+h4 {
+  font-weight: 400;
+}
+.body-m {
+  font-size: var(--body-m-size);
+}
+.body-s {
+  font-size: var(--body-s-size);
+}
+.flex {
+  display: flex;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-align {
+  display: flex;
+  align-items: center;
+}
+.radius {
+  border-radius: 10px;
+}
+
+.large {
+  max-width: var(--max-width);
+  margin: auto;
+}
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+button {
+  display: block;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.btn-1 {
+  width: 336px;
+  height: 48px;
+  background-color: var(--clr-red);
+}
+.btn-1:hover {
+  background-color: var(--clr-white);
+}
+a,
+button,
+svg {
+  transition: all 0.3s;
+}
+</style>
