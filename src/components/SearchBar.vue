@@ -1,43 +1,56 @@
 <script setup>
 import { ref } from 'vue';
-const input = ref('')
+const input = ref('');
 </script>
 
 <template>
-    <form novalidate>
-        <div class="flex-align">
-            <label for="search" hidden>Search for a movie</label>
-            <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><path d="M27.613 25.72 23.08 21.2a10.56 10.56 0 0 0 2.253-6.533C25.333 8.776 20.558 4 14.667 4S4 8.776 4 14.667c0 5.89 4.776 10.666 10.667 10.666A10.56 10.56 0 0 0 21.2 23.08l4.52 4.533a1.333 1.333 0 0 0 1.893 0 1.333 1.333 0 0 0 0-1.893ZM6.667 14.667a8 8 0 1 1 16 0 8 8 0 0 1-16 0Z" fill="#FFF"/></svg>
-            <input type="search" name="search" id="search" placeholder="Search for movies or TV series">
-        </div>
-    </form>
+  <form novalidate>
+    <div class="flex-align">
+      <label for="search" hidden>Search for a movie</label>
+      <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M27.613 25.72 23.08 21.2a10.56 10.56 0 0 0 2.253-6.533C25.333 8.776 20.558 4 14.667 4S4 8.776 4 14.667c0 5.89 4.776 10.666 10.667 10.666A10.56 10.56 0 0 0 21.2 23.08l4.52 4.533a1.333 1.333 0 0 0 1.893 0 1.333 1.333 0 0 0 0-1.893ZM6.667 14.667a8 8 0 1 1 16 0 8 8 0 0 1-16 0Z"
+          fill="#FFF"
+        />
+      </svg>
+      <input type="search" name="search" id="search" placeholder="Search for movies or TV series..." />
+    </div>
+  </form>
 </template>
 
 <style scoped>
-
 form {
-    width: 100%;
-    height: fit-content;
-    margin: 3.8rem 0 0 0;
+  width: 100%;
+  height: fit-content;
+  margin: 3.8rem 0 0 0;
 }
 form > div {
-    gap: 2rem;
+  gap: 2rem;
 }
 input {
-    background: transparent;
-    border: none;
-    outline: none;
-    display: inline-block;
-    width: 90%;
-    padding: 1rem 0;
-    font-size: var(--h2-size);
-    color: var(--clr-white);
+  background: transparent;
+  border: none;
+  outline: none;
+  display: inline-block;
+  width: 90%;
+  padding: 1rem 0;
+  font-size: var(--h2-size);
+  color: var(--clr-white);
 }
 input::placeholder {
-   color: var(--clr-blue);
+  color: var(--clr-blue);
 }
 input:focus {
-    border-bottom: 2px solid var(--clr-blue);
+  border-bottom: 2px solid var(--clr-blue);
+}
+@media screen and (max-width: 1024px) {
+  form {
+    margin: 1.5rem 0 0 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  form {
+    margin: 5rem 0 0 0;
+  }
 }
 </style>
-

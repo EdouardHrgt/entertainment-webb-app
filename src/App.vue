@@ -6,7 +6,7 @@ import SearchBar from './components/SearchBar.vue';
 <template>
   <header class="flex">
     <NavBar />
-    <SearchBar/>
+    <SearchBar />
   </header>
   <main>
     <router-view></router-view>
@@ -29,6 +29,7 @@ import SearchBar from './components/SearchBar.vue';
   --h4-size: 18px;
   --body-m-size: 15px;
   --body-s-size: 13px;
+  --padding: 2rem;
 }
 * {
   padding: 0;
@@ -122,5 +123,20 @@ a,
 button,
 svg {
   transition: all 0.4s linear;
+}
+@media screen and (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 var(--padding);
+  }
+}
+@media screen and (max-width: 768px) {
+  :root {
+    --padding: 1rem;
+  }
+  header {
+    padding: 0 var(--padding);
+  }
 }
 </style>
