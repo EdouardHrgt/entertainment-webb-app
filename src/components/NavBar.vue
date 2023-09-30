@@ -93,10 +93,10 @@ svg:hover {
 
 @media screen and (max-width: 1024px) {
   nav {
-    width: inherit;
+    width: 100%;
     height: auto;
-    padding: 1rem var(--padding);
-    margin: 2rem 0 0;
+    padding: 1.5rem var(--padding);
+    margin: 2rem 0;
   }
   ul {
     flex-direction: row;
@@ -120,13 +120,8 @@ svg:hover {
 @media screen and (max-width: 768px) {
   nav {
     border-radius: 0;
-    margin: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding: 1rem;
+    margin: 0 0 2rem 0;
+    padding: 1.5rem 1rem;
   }
 }
 </style>

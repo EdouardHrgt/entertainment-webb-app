@@ -4,13 +4,15 @@ import SearchBar from './components/SearchBar.vue';
 </script>
 
 <template>
-  <header class="flex">
-    <NavBar />
-    <SearchBar />
-  </header>
-  <main>
-    <router-view></router-view>
-  </main>
+  <div class="page-container flex">
+    <header class="flex">
+      <NavBar />
+      <!-- <SearchBar /> -->
+    </header>
+    <main>
+      <router-view></router-view>
+    </main>
+  </div>
 </template>
 
 <style>
@@ -43,8 +45,16 @@ import SearchBar from './components/SearchBar.vue';
 body {
   background-color: var(--clr-black);
   width: 100%;
-  min-height: 100dvh;
 }
+
+main {
+  width: 100%;
+}
+
+.page-container {
+  border: 3px solid rgb(1, 77, 138);
+}
+
 h1 {
   font-size: var(--h1-size);
 }
@@ -125,18 +135,10 @@ svg {
   transition: all 0.4s linear;
 }
 @media screen and (max-width: 1024px) {
-  header {
+  .page-container {
     flex-direction: column;
-    width: 100%;
-    padding: 0 var(--padding);
   }
 }
 @media screen and (max-width: 768px) {
-  :root {
-    --padding: 1rem;
-  }
-  header {
-    padding: 0 var(--padding);
-  }
 }
 </style>

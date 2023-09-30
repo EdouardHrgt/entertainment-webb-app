@@ -23,6 +23,9 @@ form {
   width: 100%;
   height: fit-content;
   margin: 3.8rem 0 0 0;
+  position: fixed;
+  top: 0;
+  left: 11rem;
 }
 form > div {
   gap: 2rem;
@@ -46,11 +49,16 @@ input:focus {
 @media screen and (max-width: 1024px) {
   form {
     margin: 1.5rem 0 0 0;
+    top: 7rem;
+    left: 0;
+    padding: 0 4rem;
   }
 }
 @media screen and (max-width: 768px) {
   form {
-    margin: 5rem 0 0 0;
+    margin: 0;
+    padding: 0 1rem;
+    top: 6.5rem;
   }
 }
 </style>
