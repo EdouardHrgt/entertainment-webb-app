@@ -55,7 +55,7 @@
 nav {
   background-color: var(--clr-dark-blue);
   width: fit-content;
-  height: 95vh;
+  height: 90vh;
   padding: 3rem 2rem;
   margin: 2rem;
 }
@@ -88,7 +88,14 @@ svg:hover {
   transition: 0.4s ease-in-out;
 }
 .profile-picture img:hover {
-  border: 1px solid var(--clr-red);
+  filter: grayscale(50%);
+  border: 1px solid var(--clr-dark-blue);
+}
+
+@media screen and (max-width: 1250px) {
+  nav {
+    margin-right: 0.5rem;
+  }
 }
 
 @media screen and (max-width: 1024px) {

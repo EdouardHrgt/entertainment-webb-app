@@ -7,9 +7,9 @@ import SearchBar from './components/SearchBar.vue';
   <div class="page-container flex">
     <header class="flex">
       <NavBar />
-      <!-- <SearchBar /> -->
     </header>
     <main>
+      <SearchBar />
       <router-view></router-view>
     </main>
   </div>
@@ -18,6 +18,7 @@ import SearchBar from './components/SearchBar.vue';
 <style>
 :root {
   --clr-white: white;
+  --clr-trans-white: rgba(255, 255, 255, 0.5);
   --clr-red: hsl(0, 97%, 63%);
   --clr-blue: hsl(223, 23%, 46%);
   --clr-dark-blue: hsl(223, 36%, 14%);
@@ -36,6 +37,7 @@ import SearchBar from './components/SearchBar.vue';
 * {
   padding: 0;
   margin: 0;
+  font: inherit;
   box-sizing: border-box;
   font-family: sans-serif;
   background-repeat: no-repeat;
@@ -44,15 +46,15 @@ import SearchBar from './components/SearchBar.vue';
 
 body {
   background-color: var(--clr-black);
+  overflow-x: hidden;
+}
+
+.page-container {
   width: 100%;
 }
 
 main {
   width: 100%;
-}
-
-.page-container {
-  border: 3px solid rgb(1, 77, 138);
 }
 
 h1 {

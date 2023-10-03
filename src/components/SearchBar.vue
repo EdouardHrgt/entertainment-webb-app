@@ -20,12 +20,8 @@ const input = ref('');
 
 <style scoped>
 form {
-  width: 100%;
   height: fit-content;
-  margin: 3.8rem 0 0 0;
-  position: fixed;
-  top: 0;
-  left: 11rem;
+  margin: 3.5rem 0 0 0;
 }
 form > div {
   gap: 2rem;
@@ -35,8 +31,8 @@ input {
   border: none;
   outline: none;
   display: inline-block;
-  width: 90%;
-  padding: 1rem 0;
+  width: 100%;
+  padding: 1rem 1rem 1rem 0;
   font-size: var(--h2-size);
   color: var(--clr-white);
 }
@@ -45,20 +41,17 @@ input::placeholder {
 }
 input:focus {
   border-bottom: 2px solid var(--clr-blue);
+  margin-bottom: -2px;
 }
 @media screen and (max-width: 1024px) {
   form {
-    margin: 1.5rem 0 0 0;
-    top: 7rem;
-    left: 0;
-    padding: 0 4rem;
+    margin: 0;
+    padding: 0 2rem;
   }
 }
 @media screen and (max-width: 768px) {
   form {
-    margin: 0;
     padding: 0 1rem;
-    top: 6.5rem;
   }
 }
 </style>
