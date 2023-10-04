@@ -1,6 +1,11 @@
 <script setup>
+import { useMoviesStore } from '../../src/stores/movies';
+import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
+
 const input = ref('');
+const store = useMoviesStore();
+const { getOneFilm } = storeToRefs(store);
 </script>
 
 <template>
@@ -13,7 +18,7 @@ const input = ref('');
           fill="#FFF"
         />
       </svg>
-      <input type="search" name="search" id="search" placeholder="Search for movies or TV series..." />
+      <input type="search" name="search" id="search" placeholder="Search for movies or TV series..." v-model="input" />
     </div>
   </form>
 </template>
@@ -32,6 +37,7 @@ input {
   outline: none;
   display: inline-block;
   width: 100%;
+  max-width: 58rem;
   padding: 1rem 1rem 1rem 0;
   font-size: var(--h2-size);
   color: var(--clr-white);
@@ -43,15 +49,18 @@ input:focus {
   border-bottom: 2px solid var(--clr-blue);
   margin-bottom: -2px;
 }
-@media screen and (max-width: 1024px) {
-  form {
-    margin: 0;
-    padding: 0 2rem;
+@media screen and (max-width: 1300px) {
+  input {
+    max-width: 51rem;
   }
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 1024px) {
   form {
-    padding: 0 1rem;
+    margin: 0 1rem 0 1rem;
+  }
+  input {
+    max-width: 50rem;
   }
 }
 </style>

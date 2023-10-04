@@ -2,17 +2,15 @@ import { defineStore } from 'pinia';
 import data from '../../data.json';
 export const useMoviesStore = defineStore('movies', {
   getters: {
-    getMovies: (state) => {
-      state.length;
+    getTrendings: (state) => {
+      return state.films.filter((item) => item.isTrending === true);
+    },
+    getName: (state) => {
+      return (name) => state.films.find((film) => film.title === 'name');
     },
   },
-  actions: {
-    reset() {
-      this.state = [];
-    },
-  },
-  state: () => {
-    return [
+  state: () => ({
+    films: [
       {
         title: 'Beyond Earth',
         thumbnail: {
@@ -468,6 +466,6 @@ export const useMoviesStore = defineStore('movies', {
         isBookmarked: true,
         isTrending: false,
       },
-    ];
-  },
+    ],
+  }),
 });

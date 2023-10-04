@@ -74,9 +74,6 @@ svg {
 svg:hover {
   fill: var(--clr-white);
 }
-.visited {
-  fill: yellow;
-}
 .profile-picture {
   width: 2.5rem;
   min-width: 2.5rem;

@@ -38,6 +38,8 @@ import SearchBar from './components/SearchBar.vue';
 
   --small-card-width: 17.5rem;
   --small-card-height: 10.875rem;
+  --carousel-card-width: 29.375rem;
+  --carousel-card-height: 14.375rem;
 }
 * {
   padding: 0;
@@ -49,6 +51,43 @@ import SearchBar from './components/SearchBar.vue';
   font-family: 'Outfit', sans-serif;
 }
 
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--clr-dark-blue);
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background-color: var(--clr-dark-blue);
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: var(--clr-dark-blue);
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: var(--clr-red);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: var(--clr-blue);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--clr-blue);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: var(--clr-blue);
+}
+
 body {
   background-color: var(--clr-black);
   overflow-x: hidden;
@@ -56,14 +95,12 @@ body {
 
 .page-container {
   width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
 }
 
 main {
   width: 100%;
-}
-
-.content {
-  /* animation: opak 2s cubic-bezier(0, 0.85, 0.43, 0.84) forwards; */
 }
 
 h1 {
@@ -154,6 +191,13 @@ svg {
     transform: translateY(0);
   }
 }
+
+@media screen and (max-width: 1440px) {
+  :root {
+    --max-width: 100%;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   :root {
     --small-card-width: 13.75rem;
@@ -165,8 +209,8 @@ svg {
 }
 @media screen and (max-width: 768px) {
   :root {
-    --small-card-width: 10.25rem;
-    --small-card-height: 6.875rem;
+    --small-card-width: 1fr;
+    --small-card-height: auto;
   }
 }
 </style>

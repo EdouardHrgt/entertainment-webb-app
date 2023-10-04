@@ -7,13 +7,13 @@ function getImageUrl(name) {
 }
 
 const props = defineProps(['infos']);
-const image = props.infos.thumbnail.regular.large;
+console.log(props.infos);
 </script>
 
 <template>
   <div class="card">
     <div class="card-img">
-      <img :src="getImageUrl(image)" alt="#" />
+      <img src="../assets/thumbnails/beyond-earth/trending/large.jpg" alt="#" />
       <div class="hover-content flex-center">
         <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -23,7 +23,6 @@ const image = props.infos.thumbnail.regular.large;
         </svg>
         <p>Play</p>
       </div>
-
       <button class="icon-bg" @click="isBookmarked = !isBookmarked">
         <div class="icon-container" :class="{ checked: isBookmarked }">
           <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg" class="bookmark-icon unchecked" v-show="!isBookmarked">
@@ -46,27 +45,28 @@ const image = props.infos.thumbnail.regular.large;
           </svg>
         </div>
       </button>
-    </div>
-    <div class="card-txt">
-      <ul class="card-infos flex">
-        <li id="year">{{ props.infos.year }}</li>
-        <li>|</li>
-        <li class="flex">
-          <img src="../assets/icon-category-movie.svg" alt="" v-if="props.infos.category === 'Movie'" />
-          <img src="../assets/icon-category-tv.svg" alt="" v-if="props.infos.category === 'TV Series'" />
-          {{ props.infos.category }}
-        </li>
-        <li>|</li>
-        <li>{{ props.infos.rating }}</li>
-      </ul>
-      <h3>{{ props.infos.title }}</h3>
+      <div class="card-txt">
+        <ul class="card-infos flex">
+          <li id="year">{{ props.infos.year }}</li>
+          <li>|</li>
+          <li class="flex genre">
+            <img src="../assets/icon-category-movie.svg" alt="" v-if="props.infos.category === 'Movie'" />
+            <img src="../assets/icon-category-tv.svg" alt="" v-if="props.infos.category === 'TV Series'" />
+            <p>{{ props.infos.category }}</p>
+          </li>
+          <li>|</li>
+          <li>{{ props.infos.rating }}</li>
+        </ul>
+        <h3>{{ props.infos.title }}</h3>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
 .card {
-  width: var(--small-card-width);
+  width: var(--carousel-card-width);
+  min-width: var(--carousel-card-width);
   border-radius: 10px 10px 0 0;
   cursor: pointer;
 }
@@ -74,8 +74,8 @@ const image = props.infos.thumbnail.regular.large;
 .card-img {
   background-position: center;
   background-size: cover;
-  width: inherit;
-  height: var(--small-card-height);
+  width: 100%;
+  height: var(--carousel-card-height);
   margin-bottom: 0.5rem;
   position: relative;
 }
@@ -129,8 +129,15 @@ const image = props.infos.thumbnail.regular.large;
   background-color: var(--clr-trans-white);
 }
 
+.card-txt {
+  position: absolute;
+  bottom: 1rem;
+  left: 1.5rem;
+  right: 1rem;
+}
+
 h3 {
-  font-size: var(--h4-size);
+  font-size: var(--h3-size);
   color: var(--clr-white);
   font-weight: 500;
   letter-spacing: 0.5px;
@@ -142,7 +149,7 @@ h3 {
 }
 
 .card-infos li {
-  font-size: var(--body-s-size);
+  font-size: var(--body-m-size);
   color: var(--clr-white);
   opacity: 0.6;
   font-weight: 300;
@@ -151,10 +158,9 @@ h3 {
 .card-infos li img {
   margin: 0 0.3rem 0 0.2rem;
 }
-
-@media screen and (max-width: 768px) {
-  .card-img {
-    aspect-ratio: 16/9;
-  }
+.genre img {
+  width: 20px;
+  height: 20px;
+  aspect-ratio: 1;
 }
 </style>
