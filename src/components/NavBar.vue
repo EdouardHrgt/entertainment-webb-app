@@ -57,7 +57,7 @@ nav {
   width: fit-content;
   height: 90vh;
   padding: 3rem 2rem;
-  margin: 2rem;
+  margin: 2rem 2rem 0 2rem;
 }
 ul {
   flex-direction: column;
@@ -67,11 +67,15 @@ ul {
 .home-link {
   margin-bottom: 2rem;
 }
+
 svg {
   fill: var(--clr-blue);
 }
 svg:hover {
   fill: var(--clr-white);
+}
+.visited {
+  fill: yellow;
 }
 .profile-picture {
   width: 2.5rem;

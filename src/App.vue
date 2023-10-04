@@ -10,7 +10,9 @@ import SearchBar from './components/SearchBar.vue';
     </header>
     <main>
       <SearchBar />
-      <router-view></router-view>
+      <div class="content">
+        <router-view></router-view>
+      </div>
     </main>
   </div>
 </template>
@@ -33,6 +35,9 @@ import SearchBar from './components/SearchBar.vue';
   --body-m-size: 15px;
   --body-s-size: 13px;
   --padding: 2rem;
+
+  --small-card-width: 17.5rem;
+  --small-card-height: 10.875rem;
 }
 * {
   padding: 0;
@@ -55,6 +60,10 @@ body {
 
 main {
   width: 100%;
+}
+
+.content {
+  /* animation: opak 2s cubic-bezier(0, 0.85, 0.43, 0.84) forwards; */
 }
 
 h1 {
@@ -136,11 +145,28 @@ button,
 svg {
   transition: all 0.4s linear;
 }
+
+@keyframes opak {
+  0% {
+    transform: translateY(-5rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 @media screen and (max-width: 1024px) {
+  :root {
+    --small-card-width: 13.75rem;
+    --small-card-height: 8.75rem;
+  }
   .page-container {
     flex-direction: column;
   }
 }
 @media screen and (max-width: 768px) {
+  :root {
+    --small-card-width: 10.25rem;
+    --small-card-height: 6.875rem;
+  }
 }
 </style>

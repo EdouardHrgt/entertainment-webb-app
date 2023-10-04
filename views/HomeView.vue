@@ -1,18 +1,14 @@
 <script setup>
 import SmallCard from '../src/components/SmallCard.vue';
+import { useMoviesStore } from '../src/stores/movies';
+
+const store = useMoviesStore();
+const videos = store.$state;
 </script>
 
 <template>
   <section class="grid">
-    <small-card />
-    <small-card />
-    <small-card />
-    <small-card />
-
-    <small-card />
-    <small-card />
-    <small-card />
-    <small-card />
+    <small-card v-for="video in videos" :key="video.id" :infos="video" />
   </section>
 </template>
 
@@ -43,15 +39,9 @@ import SmallCard from '../src/components/SmallCard.vue';
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 560px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(1, 1fr);
   }
 }
 </style>

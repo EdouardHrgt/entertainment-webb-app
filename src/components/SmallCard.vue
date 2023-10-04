@@ -1,26 +1,20 @@
 <script setup>
 import { ref } from 'vue';
 const isBookmarked = ref(false);
+
 function getImageUrl(name) {
-  return new URL(`../assets/images/${name}`, import.meta.url).href;
+  return new URL(`../assets/thumbnails/${name}`, import.meta.url).href;
 }
 
-const myCard = ref({
-  id: '',
-  image: '',
-  alt: '',
-  title: '',
-  date: '',
-  genre: '',
-  pegi: '',
-});
-
+const props = defineProps(['infos']);
+const image = props.infos.thumbnail.regular.large;
+ console.log(image);
 </script>
 
 <template>
   <div class="card">
     <div class="card-img">
-      <img src="../assets/thumbnails/the-great-lands/regular/large.jpg" alt="#" />
+      <img :src="getImageUrl(image)" alt="#" />
       <div class="hover-content flex-center">
         <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -56,20 +50,24 @@ const myCard = ref({
     </div>
     <div class="card-txt">
       <ul class="card-infos flex">
-        <li id="year">2019</li>
+        <li id="year">{{ props.infos.year }}</li>
         <li>|</li>
-        <li class="flex"><img src="../assets/icon-category-movie.svg" alt="" />Movie</li>
+        <li class="flex">
+          <img src="../assets/icon-category-movie.svg" alt="" v-if="props.infos.category === 'Movie'" />
+          <img src="../assets/icon-category-tv.svg" alt="" v-if="props.infos.category === 'TV Series'" />
+          {{ props.infos.category }}
+        </li>
         <li>|</li>
-        <li>PG</li>
+        <li>{{ props.infos.rating }}</li>
       </ul>
-      <h3>tototototo</h3>
+      <h3>{{ props.infos.title }}</h3>
     </div>
   </div>
 </template>
 
 <style scoped>
 .card {
-  width: 17.5rem;
+  width: var(--small-card-width);
   border-radius: 10px 10px 0 0;
   cursor: pointer;
 }
@@ -78,7 +76,7 @@ const myCard = ref({
   background-position: center;
   background-size: cover;
   width: inherit;
-  height: 10.875rem;
+  height: var(--small-card-height);
   margin-bottom: 0.5rem;
   position: relative;
 }
