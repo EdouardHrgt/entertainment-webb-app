@@ -90,7 +90,6 @@ import SearchBar from './components/SearchBar.vue';
 
 body {
   background-color: var(--clr-black);
-  overflow-x: hidden;
 }
 
 .page-container {
@@ -211,6 +210,8 @@ svg {
   :root {
     --small-card-width: 1fr;
     --small-card-height: auto;
+    --carousel-card-width: 15rem;
+    --carousel-card-height: 8.75rem;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <script setup>
 import SmallCard from '../src/components/SmallCard.vue';
 import Carousel from '../src/components/Carousel.vue';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useMoviesStore } from '../src/stores/movies';
 import { storeToRefs } from 'pinia';
 
@@ -9,6 +9,15 @@ const store = useMoviesStore();
 
 const videos = store.$state.films;
 const trendings = store.getTrendings;
+
+const isSearched = computed(() => {
+  const searchedItem = store.$state.searching;
+  if (searchedItem) {
+    return searchedItem;
+  } else {
+    return videos;
+  }
+});
 </script>
 
 <template>
@@ -17,7 +26,7 @@ const trendings = store.getTrendings;
   </section>
 
   <section class="grid">
-    <small-card v-for="video in videos" :key="video.id" :infos="video" />
+    <small-card v-for="video in isSearched" :key="video.id" :infos="video" />
   </section>
 </template>
 
@@ -71,9 +80,15 @@ const trendings = store.getTrendings;
 
 @media screen and (max-width: 768px) {
   .grid {
-    grid-column-gap: 1.5rem;
-    width: calc(100% - 1.5rem);
+    grid-column-gap: 1rem;
+    width: 100%;
     margin-inline: auto;
+  }
+  .carousel {
+    gap: 1rem;
+    width: 100%;
+    margin-top: 2rem;
+    margin-left: 0.5rem;
   }
 }
 

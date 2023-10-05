@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia';
-import data from '../../data.json';
 export const useMoviesStore = defineStore('movies', {
   getters: {
     getTrendings: (state) => {
@@ -10,6 +9,7 @@ export const useMoviesStore = defineStore('movies', {
     },
   },
   state: () => ({
+    searching: null,
     films: [
       {
         title: 'Beyond Earth',

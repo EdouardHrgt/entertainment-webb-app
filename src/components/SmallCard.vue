@@ -153,8 +153,6 @@ h3 {
 }
 
 @media screen and (max-width: 768px) {
-  .card-img {
-    aspect-ratio: 16/9;
-  }
+
 }
 </style>

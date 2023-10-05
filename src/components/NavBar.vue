@@ -131,5 +131,8 @@ svg:hover {
     margin: 0 0 2rem 0;
     padding: 1.5rem 1rem;
   }
+  ul {
+    gap: 1.5rem;
+  }
 }
 </style>

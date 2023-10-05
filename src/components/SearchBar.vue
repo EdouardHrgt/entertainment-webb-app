@@ -1,11 +1,13 @@
 <script setup>
 import { useMoviesStore } from '../../src/stores/movies';
-import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
 
 const input = ref('');
 const store = useMoviesStore();
-const { getOneFilm } = storeToRefs(store);
+
+const searchAMovie = (title) => {
+  store.searching = store.films.find((film) => film.title == title);
+};
 </script>
 
 <template>
@@ -18,7 +20,14 @@ const { getOneFilm } = storeToRefs(store);
           fill="#FFF"
         />
       </svg>
-      <input type="search" name="search" id="search" placeholder="Search for movies or TV series..." v-model="input" />
+      <input
+        type="search"
+        name="search"
+        id="search"
+        placeholder="Search for movies or TV series..."
+        v-model="input"
+        @input="searchAMovie(input)"
+      />
     </div>
   </form>
 </template>
@@ -61,6 +70,15 @@ input:focus {
   }
   input {
     max-width: 50rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  form > div {
+    gap: 1rem;
+  }
+  input {
+    font-size: var(--h4-size);
   }
 }
 </style>

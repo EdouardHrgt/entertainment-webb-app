@@ -7,7 +7,6 @@ function getImageUrl(name) {
 }
 
 const props = defineProps(['infos']);
-console.log(props.infos);
 </script>
 
 <template>
@@ -162,5 +161,11 @@ h3 {
   width: 20px;
   height: 20px;
   aspect-ratio: 1;
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
 }
 </style>
