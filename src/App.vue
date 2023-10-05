@@ -104,6 +104,9 @@ main {
 
 h1 {
   font-size: var(--h1-size);
+  color: var(--clr-white);
+  margin-block: 1rem;
+  padding-inline: 1rem;
 }
 h2 {
   font-size: var(--h2-size);

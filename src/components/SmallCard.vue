@@ -8,6 +8,7 @@ function getImageUrl(name) {
 
 const props = defineProps(['infos']);
 const image = props.infos.thumbnail.regular.large;
+
 </script>
 
 <template>
@@ -153,6 +154,5 @@ h3 {
 }
 
 @media screen and (max-width: 768px) {
-
 }
 </style>

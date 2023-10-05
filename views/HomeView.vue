@@ -13,7 +13,8 @@ const trendings = store.getTrendings;
 const isSearched = computed(() => {
   const searchedItem = store.$state.searching;
   if (searchedItem) {
-    return searchedItem;
+    console.log(searchedItem);
+    return [searchedItem];
   } else {
     return videos;
   }
@@ -36,7 +37,7 @@ const isSearched = computed(() => {
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   width: 100%;
-  margin-top: 3.5rem;
+  margin-top: 2rem;
   margin-left: 1rem;
   padding-bottom: 0.2rem;
   scroll-snap-type: inline mandatory;
