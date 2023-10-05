@@ -7,12 +7,13 @@ function getImageUrl(name) {
 }
 
 const props = defineProps(['infos']);
+const image = props.infos.thumbnail.trending.large;
 </script>
 
 <template>
   <div class="card">
     <div class="card-img">
-      <img src="../assets/thumbnails/beyond-earth/trending/large.jpg" alt="#" />
+      <img :src="getImageUrl(image)" alt="#" />
       <div class="hover-content flex-center">
         <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
           <path
